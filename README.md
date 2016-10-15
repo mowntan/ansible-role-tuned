@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/while-true-do/ansible-role-tuned.svg?branch=master)](https://travis-ci.org/while-true-do/ansible-role-tuned)
+
 # Ansible Role: tuned
 | A role to install and configure tuned.
 
