@@ -1,0 +1,6 @@
+---
+- name: Enable and Start tuned
+  service:
+    name: tuned
+    state: started
+    enabled: yes

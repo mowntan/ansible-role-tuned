@@ -1,0 +1,33 @@
+---
+- name: Install tuned
+  package:
+    name: tuned
+    state: present
+  tags:
+    - power
+    - tuning
+    - energy
+    - performance
+  notify:
+    - Enable and Start tuned
+
+- name: Fetch tuned profile facts
+  shell: tuned-adm active | grep '{{ tuned_profile }}'
+  ignore_errors: yes
+  register: tuned_status
+  changed_when: tuned_status.rc != 0
+  failed_when: tuned_status.rc != 1 and tuned_status.rc != 0
+  tags:
+    - power
+    - tuning
+    - energy
+    - performance
+
+- name: Set tuned profile
+  shell: tuned-adm profile '{{ tuned_profile }}'
+  when: tuned_status.rc != 0
+  tags:
+    - power
+    - tuning
+    - energy
+    - performance
