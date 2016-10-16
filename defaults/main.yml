@@ -1,2 +1,2 @@
 ---
-tuned_profile: balanced
+tuned_profile: 'balanced'
